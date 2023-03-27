@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页复原2.0</title>
+</head>
+<style>
+    body {
+        background-color: white;
+    }
+
+    #top {
+        height: 100px;
+        background-color: black;
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        display: flex;
+    }
+
+    #box {
+        cursor: pointer;
+        position: relative;
+        margin-left: 8%;
+        float: left;
+        align-self: center;
+    }
+
+    #box1 {
+        width: 0;
+        border-left: 26px solid transparent;
+        border-right: 26px solid transparent;
+        border-bottom: 15px solid blue;
+    }
+
+    #box2 {
+        width: 52px;
+        height: 30px;
+        background-color: blue;
+        font-size: 28px;
+        text-align: center;
+        color: black;
+    }
+
+    #box3 {
+        width: 0;
+        border-top: 15px solid blue;
+        border-left: 26px solid transparent;
+        border-right: 26px solid transparent;
+    }
+
+    .six_theme {
+        cursor: pointer;
+        align-self: center;
+        color: white;
+        font-size: 30px;
+    }
+.topDiv-span{
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 20px;
+}
+    #top span:hover {
+        color: deepskyblue;
+        font-size: 28px;
+    }
+
+    .on {
+        margin-left: 3%;
+        margin-top: 1%;
+        width: 15%;
+    }
+.input{
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    direction: ltr;
+    unicode-bidi: isolate;
+    box-sizing: inherit;
+    padding: 0;
+    margin-top: 10%;
+    background: 0 0;
+    font-size: inherit;
+    font-family:Ebrima;
+    color: #fff;
+    outline: 0;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    -webkit-appearance: none;
+    position:fixed;
+    vertical-align: top;
+}
+    #theme {
+        color: darkgrey;
+        font-size: 50px;
+        font-family: Calibri;
+        margin-left: 9.5%;
+    }
+
+    #item {
+        color: darkgrey;
+        font-size: 20px;
+        margin-left: 29.4%;
+    }
+
+    #search {
+        position: relative;
+    }
+
+    #right {
+        height: 500px;
+        width: 150px;
+        background-color: gainsboro;
+        border: 0;
+        right: 3%;
+        margin-top: 10px;
+        position: fixed;
+        z-index: 1;
+        animation: myRight 2.5s 0.2s 1;
+    }
+    @keyframes myRight {
+        from{
+            opacity: 0;
+        }
+        50% {
+            opacity: 50%;
+        }
+        to{
+            opacity: 100%;
+        }
+    }
+    #btn1 {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        text-align: center;
+        background-color: white;
+        border-width: 1px;
+        border-color: white;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .one {
+        width: 20%;
+        /* position: absolute;//会脱离文档流
+         left: 10%;*/
+        float: left;
+        height: fit-content;
+        padding: 0 5%;
+    }
+
+    .two {
+        width: 20%;
+        /*        position: absolute;
+                left: 38%;*/
+        padding: 0 5%;
+        height: fit-content;
+        float: left;
+    }
+
+    .three {
+        width: 20%;
+        /*        position: relative;
+                left: 66%;*/
+        height: fit-content;
+        float: left;
+        padding: 0 5%;
+    }
+
+    .container {
+        margin-bottom: 1%;
+    }
+
+    body > div {
+        overflow: hidden;
+    }
+
+    /*.one, .two, .three {*/
+    /*    width: calc(1440px * .2);*/
+    /*}*/
+    /*.container {*/
+    /*    margin: 0 auto;*/
+    /*    width: 90%;*/
+    /*    display: flex;*/
+    /*    flex-wrap: wrap;*/
+    /*    gap: 4em;*/
+    /*}*/
+    .first {
+        cursor: pointer;
+        color: cornflowerblue;
+        font-weight: 600;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    .first:hover {
+        color: skyblue;
+    }
+
+    .second {
+        color: dimgray;
+        font-size: 15px;
+        font-weight: 450;
+        text-decoration: none;
+    }
+
+    .third {
+        cursor: pointer;
+        font-weight: 350;
+        font-size: 13px;
+        margin-bottom: 5px;
+        text-decoration: none;
+    }
+
+    .yi:hover {
+        color: skyblue;
+    }
+
+    div {
+        letter-spacing: 1px;
+    }
+
+    .img {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    img {
+        background-size: cover;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        border-style: solid;
+        border-color: gainsboro;
+    }
+#bottom_box{
+    position: fixed;
+    height:fit-content;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+    #btn2{
+        height:30px;
+        width: 30px;
+        font-size: 20px;
+        background-color: white;
+        border-color: gainsboro;
+        border-width: 1px;
+        border-style: solid;
+    }
+    #bottom {
+        height: 150px;
+        background-color: aliceblue;
+        border-style: solid;
+        border-color: gainsboro;
+        border-width: 2px;
+    }
+
+   /* @keyframes mybottom {
+        20%{
+            height: 15%;
+        }
+        40%{
+            height: 10%;
+        }
+        60%{
+            height: 5%;
+        }
+        100%{
+            height: 1%;
+        }
+    }
+    @keyframes mmybottom {
+        20%{
+            height: 5%;
+        }
+        40%{
+            height: 10%;
+        }
+        60%{
+            height: 15%;
+        }
+        100%{
+            height: 20%;
+        }
+    }*/
+
+</style>
+<body>
+<div id="top">
+    <div id="box">
+        <div id="box1"></div>
+        <div id="box2">H</div>
+        <div id="box3"></div>
+    </div>
+    <div class="topDiv-span" style="width: 80px"><span class="six_theme">Docs</span></div>
+    <div class="topDiv-span" style="width: 80px"><span class="six_theme">API</span></div>
+    <div class="topDiv-span" style="width: 80px"> <span class="six_theme">News</span></div>
+    <div class="topDiv-span" style="width: 120px"> <span class="six_theme">Plugins</span></div>
+    <div class="topDiv-span" style="width: 120px"><span class="six_theme">Themes</span></div>
+    <div class="topDiv-span" style="width: 120px"> <span class="six_theme">About</span></div>
+    <div class="on">
+            <input type="search" class="input" placeholder="Search..."  autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-labelledby="search-input" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+    </div>
+
+</div>
+<div id="right">
+    <button id="btn1">×</button>
+</div>
+<p id="search"><span id="theme">Themes</span><span id="item"> 375 items</span>
+    <input style="margin-left:10px;height: 35px;width: 30%" id="themeName" placeholder="Search"></p>
+
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/xiayan.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan1</a><br>
+        <span class="second">Suitable for products blog</span><br>
+        <span class="third"><span class="yi">#bootstrap</span> <span class="yi">#tag_plugins</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/xiayan2.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan2</a><br>
+        <span class="second">A minimal theme</span><br>
+        <span class="third"><span class="yi">#elegant</span> <span class="yi">#minimal</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/xiayan3.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan3</a><br>
+        <span  class="second">A simple hexo theme bassed on Anatote</span><br>
+        <span  class="third"><span class="yi">#clean</span> <span class="yi">#simple</span></span>
+    </div>
+</div>
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/xiayan4.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan4</a><br>
+        <span class="second">A concise theme</span><br>
+        <span class="third"><span class="yi">#Vue</span> <span class="yi">#Chinese</span> <span
+                class="yi">#dark_mode</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/xiayan5.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan5</a><br>
+        <span class="second">A brand-new default theme</span><br>
+        <span  class="third"><span class="yi">#official</span> <span class="yi">#widget</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/xiayan6.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%A4%8F%E5%BD%A6/23690040" class="first">Xiayan6</a><br>
+        <span class="second">SPA,flat and clean theme</span><br>
+        <span class="third"><span class="yi">#esponsive</span> <span class="yi">#中文</span>
+        <span class="yi">#clean</span> <span class="yi">#simple</span>
+        <span class="yi">#sun</span> <span class="yi">#summer</span>
+            <span class="yi">#sun</span> <span class="yi">#summer</span>
+            <span class="yi">#sun</span> <span class="yi">#summer</span>
+            <span class="yi">#sun</span> <span class="yi">#summer</span>
+        </span>
+    </div>
+</div>
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/zuoran1.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran1</a><br>
+        <span class="second">Ocean</span><br>
+        <span class="third"><span class="yi">#blue</span> <span class="yi">#中文</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/zuoran2.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran2</a><br>
+        <span class="second">Animals families</span><br>
+        <span class="third"><span class="yi">#Animals</span> <span class="yi">#picture</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/zuoran3.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran3</a><br>
+        <span class="second">Summer theme</span><br>
+        <span class="third"><span class="yi">#sun</span> <span class="yi">#summer</span></span>
+    </div>
+</div>
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/zuoran4.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran4</a><br>
+        <span class="second">Cabon is a simple theme using pjax for elegant loading</span><br>
+        <span class="third"><span class="yi">#简约</span> <span class="yi">#Chinese</span> <span
+                class="yi">#simple</span> <span class="yi">#summer</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/zuoran5.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran5</a><br>
+        <span class="second">A Simple and Fast Theme for Hexo</span><br>
+        <span class="third"><span class="yi">#Vue</span> <span class="yi">#via</span> <span
+                class="yi">#summer</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/zuoran6.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E5%B7%A6%E7%84%B6/23689934?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Zuoran6</a><br>
+        <span class="second">A concise theme</span><br>
+        <span class="third"><span class="yi">#English</span> <span class="yi">#concise</span> <span
+                class="yi">#Chinese</span></span>
+    </div>
+</div>
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/bq1.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi1</a><br>
+        <span class="second">A cool,simple & beautiful theme</span><br>
+        <span class="third"><span class="yi">#respnsive</span> <span class="yi">#Chinese</span> <span
+                class="yi">#dark</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/bq2.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi2</a><br>
+        <span class="second">Simple blog theme</span><br>
+        <span class="third"><span class="yi">#Vue</span> <span class="yi">#Chinese</span> <span
+                class="yi">#dark_mode</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/bq3.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi3</a><br>
+        <span class="second">I hope I can maintain for a long time</span><br>
+        <span class="third"><span class="yi">#English</span> <span class="yi">#sky</span> <span
+                class="yi">#dark_mode</span></span>
+    </div>
+</div>
+<div class="container">
+    <div class="one">
+        <div class="img">
+            <img src="images/bq4.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi4</a><br>
+        <span class="second">A simple theme based on theme landscape</span><br>
+        <span class="third"><span class="yi">#English</span> <span class="yi">#sky</span> <span
+                class="yi">#dark_mode</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/bq5.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi5</a><br>
+        <span class="second">particle</span><br>
+        <span class="third"><span class="yi">#national</span> <span class="yi">#dream</span> <span
+                class="yi">#bright</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/bq6.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi6</a><br>
+        <span class="second">life and family</span><br>
+        <span class="third"><span class="yi">#life</span> <span class="yi">#food</span> <span
+                class="yi">#family</span></span>
+    </div>
+</div>
+<div class="container">
+
+    <div class="one">
+        <div class="img">
+            <img src="images/bq7.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi7</a><br>
+        <span class="second">A wonderful,elegant and eye-protected light theme for Hexo</span><br>
+        <span class="third"><span class="yi">#wonderful</span> <span class="yi">#light</span></span>
+    </div>
+    <div class="two">
+        <div class="img">
+            <img src="images/bq8.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi8</a><br>
+        <span class="second">Next is an elegant and powerful theme</span><br>
+        <span class="third"><span class="yi">#light</span> <span class="yi">#Chinese</span> <span
+                class="yi">#clean</span></span>
+    </div>
+    <div class="three">
+        <div class="img">
+            <img src="images/bq9.png" alt="">
+        </div>
+        <br>
+        <a href="https://baike.baidu.com/item/%E7%99%BD%E8%B5%B7/22290805?lemmaFrom=lemma_starMap&fromModule=lemma_starMap" class="first">Baiqi9</a><br>
+        <span class="second">A light,paper-like theme</span><br>
+        <span class="third"><span class="yi">#white</span> <span class="yi">#blog</span> <span
+                class="yi">#writinf</span></span>
+    </div>
+</div>
+<div id="bottom_box">
+    <button id="btn2" >﹀</button>
+    <div id="bottom">
+</div>
+
+</div>
+<script>
+    let bottom = document.getElementById('bottom')
+    let right = document.getElementById('right')
+    let btn1 = document.getElementById('btn1')
+    let btn2 = document.getElementById('btn2')
+    let bottom_box = document.getElementById('bottom_box')
+    let bheight=bottom.style.height;
+    bottom.onmouseover = function () {
+        bottom.style.cursor = "pointer";
+    }
+    btn2.style.width = "25px";
+    btn2.style.height = "25px";
+    btn2.style.cursor = "pointer";
+    btn2.style.fontSize = "10px";
+    btn2.style.textAlign = "center";
+    btn2.style.inlineHeight = "25px";
+    btn2.style.color = "black";
+    btn2.style.backgroundcolor = "white";
+    let sign = 1;
+   /* btn2.onmouseup = function () {
+        if (sign === 1) {
+            myBottom();
+        } else if (sign === -1) {
+            thisBottom();
+        }
+    }*/
+    btn2.onclick = function () {
+        if (sign) {
+            bottom_box.animate({
+                transform:'translate(0,87%)'
+            },{
+                duration:1500,
+                easing:'linear',
+                iterations:1,
+                fill:"forwards"
+            })
+            btn2.innerHTML="︿";
+        }
+        if(sign===-1){
+            bottom_box.animate({
+                    transform:'translate(0,0)'
+                },{
+                    duration:1500,
+                    easing:'linear',
+                    iterations:1,
+                    fill:"forwards"
+                })
+            btn2.innerHTML="﹀";
+            }
+            sign*=-1;
+    }
+    /*function myBottom() {
+        if (bottom) {
+            bottom.style.height = "1%";
+            sign *= -1;
+        }
+    }*/
+    function myBottom() {
+        if (bottom) {
+         bottom.style.transform="translate(0,90%)";
+            sign *= -1;
+        }
+    }
+
+    function thisBottom() {
+        bottom.style.height = "20%";
+        sign *= -1;
+    }
+   /* function thisBottom() {
+        bottom.style.transform="translate(0,0)";
+        sign *= -1;
+    }*/
+    btn1.onmouseup = function () {
+        right.hidden = "true";
+        alert("adv is closed!")
+    }
+
+
+</script>
+</body>
+</html>
